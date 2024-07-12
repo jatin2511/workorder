@@ -105,7 +105,7 @@ function App() {
         </div>
         <button className='bg-[#2bddce] text-lgs font-medium rounded-lg p-2 px-10 hover:-translate-y-1 '>Save</button>
       </div>
-      <div className='text-2xl flex' >
+      <div className='text-2xl flex cursor-pointer' >
         
         <div
           className={`${tabname === 'overview' ? 'font-bold ' : ''}`}
