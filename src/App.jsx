@@ -32,17 +32,16 @@ function App() {
   };
    
   const allpackagecheckboxupdate = () => {
-    const updatedCheckedItems = {};
     const anychecked = Object.values(checkedItems).some(item => item);
+    const newCheckedState = !anychecked;
+    const updatedCheckedItems = {};
   
     data.forEach(pkg => {
-      const isChecked = !anychecked;
-      updatedCheckedItems[pkg.name] = isChecked;
-  
+      updatedCheckedItems[pkg.name] = newCheckedState;
       pkg.activities.forEach(activity => {
-        updatedCheckedItems[`${pkg.name}-${activity.name}`] = isChecked;
+        updatedCheckedItems[`${pkg.name}-${activity.name}`] = newCheckedState;
         activity.works.forEach(workItem => {
-          updatedCheckedItems[`${pkg.name}-${activity.name}-${workItem.name}`] = isChecked;
+          updatedCheckedItems[`${pkg.name}-${activity.name}-${workItem.name}`] = newCheckedState;
         });
       });
     });

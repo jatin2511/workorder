@@ -15,7 +15,7 @@ function ActivityItem({
     const { name, rate, Total, works } = activityData;
     const id = `${packageName}-${name}`;
     return (
-      <div className="ml-4 mb-2 border-l-2">
+      <div className="ml-4 pb-2 border-l-2">
         <div className="grid grid-cols-4 items-center justify-items-center gap-4 p-2">
            
           <h6 className="col-span-1 flex gap-2 items-center">
