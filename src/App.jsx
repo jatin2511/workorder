@@ -1,156 +1,149 @@
 import React, { useState } from 'react';
-import data from './utils/data.json'
+import data from './utils/data.json';
 import Overview from './Pages/Overview';
-import { Tabs, Tab} from '@mui/material';
-import {ArrowBackIos } from '@mui/icons-material';
-
-
-
+import { ArrowBackIos } from '@mui/icons-material';
 
 function App() {
-  const [tabname, settabname] = useState('overview');
-  const [expandedPackages, setexpandedpackages] = useState({});
-  const [expandedActivities, setexpandedactivities] = useState({});
+  const [tabName, setTabName] = useState('overview');
+  const [expandedPackages, setExpandedPackages] = useState({});
+  const [expandedActivities, setExpandedActivities] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
 
-  const changetab = ( newtab) => {
-    settabname(newtab);
+  const changeTab = (newTab) => {
+    setTabName(newTab);
   };
 
-  const expandpackage = (id) => {
-    setexpandedpackages((pre) => ({
-      ...pre,
-      [id]: !pre[id],
+  const expandPackage = (id) => {
+    setExpandedPackages((prev) => ({
+      ...prev,
+      [id]: !prev[id],
     }));
   };
 
-  const expandactivity = (id) => {
-    setexpandedactivities((pre) => ({
-      ...pre,
-      [id]: !pre[id],
+  const expandActivity = (id) => {
+    setExpandedActivities((prev) => ({
+      ...prev,
+      [id]: !prev[id],
     }));
   };
-   
-  const allpackagecheckboxupdate = () => {
-    const anychecked = Object.values(checkedItems).some(item => item);
-    const newCheckedState = !anychecked;
+
+  const updateCheckedItems = (id, isChecked) => {
+    setCheckedItems((prev) => ({
+      ...prev,
+      [id]: isChecked,
+    }));
+  };
+
+  const allPackageCheckboxUpdate = () => {
+    const allChecked = Object.values(checkedItems).every(item => item);
+    const newCheckedState = !allChecked;
     const updatedCheckedItems = {};
   
     data.forEach(pkg => {
-      updatedCheckedItems[pkg.name] = newCheckedState;
+      updatedCheckedItems[pkg.name] = newCheckedState; 
       pkg.activities.forEach(activity => {
-        updatedCheckedItems[`${pkg.name}-${activity.name}`] = newCheckedState;
+        updatedCheckedItems[`${pkg.name}-${activity.name}`] = newCheckedState; 
         activity.works.forEach(workItem => {
-          updatedCheckedItems[`${pkg.name}-${activity.name}-${workItem.name}`] = newCheckedState;
+          updatedCheckedItems[`${pkg.name}-${activity.name}-${workItem.name}`] = newCheckedState; 
         });
       });
     });
   
     setCheckedItems(updatedCheckedItems);
   };
-
-  const packagecheckboxupdate = (packagename) => {
-    const ischecked = !checkedItems[packagename];
-    const updatedcheckeditems
-   = { ...checkedItems, [packagename]: ischecked };
-
-    const packageData = data.find(pkg => pkg.name === packagename);
-    packageData.activities.forEach((activity) => {
-      updatedcheckeditems
-    [`${packagename}-${activity.name}`] = ischecked;
-      activity.works.forEach((workItem) => {
-        updatedcheckeditems
-      [`${packagename}-${activity.name}-${workItem.name}`] = ischecked;
+  const packageCheckboxUpdate = (packageName) => {
+    const isChecked = !checkedItems[packageName];
+    const updatedCheckedItems = { ...checkedItems, [packageName]: isChecked };
+  
+    const packageData = data.find(pkg => pkg.name === packageName);
+    packageData.activities.forEach(activity => {
+      updatedCheckedItems[`${packageName}-${activity.name}`] = isChecked; 
+      activity.works.forEach(workItem => {
+        updatedCheckedItems[`${packageName}-${activity.name}-${workItem.name}`] = isChecked; 
       });
     });
-
-    setCheckedItems(updatedcheckeditems
-    
-    );
-  };
-
-  const activitycheckboxupdate = (packagename, activityName) => {
-    const ischecked = !checkedItems[`${packagename}-${activityName}`];
-    const updatedcheckeditems
-   = { ...checkedItems, [`${packagename}-${activityName}`]: ischecked };
-
-    const packageData = data.find(pkg => pkg.name === packagename);
-    const activityData = packageData.activities.find(act => act.name === activityName);
-    activityData.works.forEach((workItem) => {
-      updatedcheckeditems
-    [`${packagename}-${activityName}-${workItem.name}`] = ischecked;
-    });
-
-    setCheckedItems(updatedcheckeditems
-    
-    );
-  };
-
-  const workitemcheckboxupdate = (id) => {
-    setCheckedItems((prevCheckedItems) => ({
-      ...prevCheckedItems,
-      [id]: !prevCheckedItems[id],
-    }));
-  };
   
+    setCheckedItems(updatedCheckedItems);
+  };
+  const activityCheckboxUpdate = (packageName, activityName) => {
+    const isChecked = !checkedItems[`${packageName}-${activityName}`];
+    const updatedCheckedItems = { ...checkedItems, [`${packageName}-${activityName}`]: isChecked };
+  
+    const packageData = data.find(pkg => pkg.name === packageName);
+    const activityData = packageData.activities.find(act => act.name === activityName);
+  
+    activityData.works.forEach(workItem => {
+      updatedCheckedItems[`${packageName}-${activityName}-${workItem.name}`] = isChecked;
+    });
+  
+    
+    const allActivitiesChecked = packageData.activities.every(act => updatedCheckedItems[`${packageName}-${act.name}`]);
+    updatedCheckedItems[packageName] = allActivitiesChecked;
+  
+    setCheckedItems(updatedCheckedItems);
+  };
+
+  const workItemCheckboxUpdate = (id) => {
+    const isChecked = !checkedItems[id];
+    const updatedCheckedItems = { ...checkedItems, [id]: isChecked };
+  
+    const [packageName, activityName] = id.split('-').slice(0, 2);
+    const packageData = data.find(pkg => pkg.name === packageName);
+    const activityData = packageData.activities.find(act => act.name === activityName);
+  
+    
+    const allWorkItemsChecked = activityData.works.every(item => updatedCheckedItems[`${packageName}-${activityName}-${item.name}`]);
+    updatedCheckedItems[`${packageName}-${activityName}`] = allWorkItemsChecked;
+  
+  
+    const allActivitiesChecked = packageData.activities.every(act => updatedCheckedItems[`${packageName}-${act.name}`]);
+    updatedCheckedItems[packageName] = allActivitiesChecked;
+  
+    setCheckedItems(updatedCheckedItems);
+  };
 
   return (
-    
     <div className="p-4">
       <div className='flex justify-between items-center p-4'>
         <div className='text-2xl font-semibold flex items-center'>
-          <ArrowBackIos/>
+          <ArrowBackIos />
           <span className='pt-1'>Create Workorder</span>
         </div>
-        <button className='bg-[#2bddce] text-lgs font-medium rounded-lg p-2 px-10 hover:-translate-y-1 '>Save</button>
+        <button className='bg-[#2bddce] text-lg font-medium rounded-lg p-2 px-10 hover:-translate-y-1'>Save</button>
       </div>
-      <div className='text-2xl flex cursor-pointer' >
-        
+      <div className='text-2xl flex cursor-pointer'>
         <div
-          className={`${tabname === 'overview' ? 'font-bold ' : ''}`}
-          onClick={(e) => changetab('overview')}
+          className={`${tabName === 'overview' ? 'font-bold' : ''}`}
+          onClick={() => changeTab('overview')}
         >
           &nbsp;&nbsp;&nbsp;Overview&nbsp;&nbsp;&nbsp;&nbsp;
-          <hr className={` ${tabname === 'overview' ? 'border-2 border-black' : ''}`}/>
-        
-        
+          <hr className={`${tabName === 'overview' ? 'border-2 border-black' : ''}`} />
         </div>
         <div
-          className={`${tabname === 'other' ? 'font-bold ' : ''}`}
-          onClick={(e) => changetab('other')}
+          className={`${tabName === 'other' ? 'font-bold' : ''}`}
+          onClick={() => changeTab('other')}
         >
-          &nbsp;&nbsp;&nbsp;Overview&nbsp;&nbsp;&nbsp;&nbsp;
-          <hr className={` ${tabname === 'other' ? 'border-2 border-black' : ''}`}/>
-        
-        
+          &nbsp;&nbsp;&nbsp;Other&nbsp;&nbsp;&nbsp;&nbsp;
+          <hr className={`${tabName === 'other' ? 'border-2 border-black' : ''}`} />
         </div>
       </div>
-      {tabname === 'overview' && (
+      {tabName === 'overview' && (
         <Overview
           data={data}
           expandedPackages={expandedPackages}
           expandedActivities={expandedActivities}
-          expandpackage={expandpackage}
-          expandactivity={expandactivity}
+          expandPackage={expandPackage}
+          expandActivity={expandActivity}
           checkedItems={checkedItems}
-          allpackagecheckboxupdate={allpackagecheckboxupdate}
-          packagecheckboxupdate={packagecheckboxupdate}
-          activitycheckboxupdate={activitycheckboxupdate}
-          workitemcheckboxupdate={workitemcheckboxupdate}
+          allPackageCheckboxUpdate={allPackageCheckboxUpdate}
+          packageCheckboxUpdate={packageCheckboxUpdate}
+          activityCheckboxUpdate={activityCheckboxUpdate}
+          workItemCheckboxUpdate={workItemCheckboxUpdate}
         />
       )}
-      { tabname === 'other' && <h2 className='m-5'>Hello World!</h2>}
+      {tabName === 'other' && <h2 className='m-5'>Hello World!</h2>}
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
 
 export default App;
