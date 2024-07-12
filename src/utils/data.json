@@ -1,0 +1,341 @@
+[
+{ 
+  "name":"Civil 1",
+  "rate": "567.80",
+  "total":"2,98,6792",
+  "activities":[
+    {
+        "name":"Activity 1",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 2",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 3",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 4",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    }
+
+  ]  
+
+},
+{ 
+  "name":"Civil 2",
+  "rate": "567.80",
+  "total":"2,98,6792",
+  "activities":[
+    {
+        "name":"Activity 1",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 2",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 3",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 4",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    }
+
+  ]  
+
+},
+{ 
+  "name":"Civil 3",
+  "rate": "567.80",
+  "total":"2,98,6792",
+  "activities":[
+    {
+        "name":"Activity 1",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 2",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 3",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 4",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    }
+
+  ]  
+
+},
+{ 
+  "name":"Civil 4",
+  "rate": "567.80",
+  "total":"2,98,6792",
+  "activities":[
+    {
+        "name":"Activity 1",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 2",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 3",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    },
+    {
+        "name":"Activity 4",
+        "rate":"567",
+        "Total":"2986792",
+        "works":[
+            {
+                "name":"Work Item 1",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 2",
+                "Total":"2986792"
+            },
+            {
+                "name":"Work Item 3",
+                "Total":"2986792"
+            }
+        ]
+    }
+
+  ]  
+
+}]
